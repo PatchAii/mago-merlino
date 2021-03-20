@@ -1,10 +1,9 @@
-import 'package:mason/mason.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:glob/glob.dart';
 import 'package:meta/meta.dart';
 
-Future<MasonBundle> generateTemplate(String root) async {
+Future<void> generateTemplate(String root) async {
   final list = <FileTemplate>[];
 
   final file =
