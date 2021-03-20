@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:patchai_flutter_modules_cli/src/core/runner.dart';
+import 'package:patchai_flutter_cli/src/core/runner.dart';
 
 void main(List<String> args) async {
   await _flushThenExit(await Runner().run(args));

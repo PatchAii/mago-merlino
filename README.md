@@ -1,4 +1,4 @@
-# patchai_flutter_modules_cli
+# patchai_flutter_cli
 
 A new Flutter package project.
 

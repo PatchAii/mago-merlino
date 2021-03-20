@@ -1,1 +1,1 @@
-library patchai_flutter_modules_cli;
+library patchai_flutter_cli;

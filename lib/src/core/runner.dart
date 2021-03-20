@@ -2,7 +2,7 @@ import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
 import 'package:mason/mason.dart';
-import 'package:patchai_flutter_modules_cli/src/commands/create.dart';
+import 'package:patchai_flutter_cli/src/commands/create.dart';
 
 import '../version/version.dart';
 
