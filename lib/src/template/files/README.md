@@ -1,6 +1,4 @@
-# patchai_flutter_cli
-
-## Mago Merlino
+# {{project_name_capitalize}}
 
 A new Flutter package project.
 

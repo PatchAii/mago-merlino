@@ -17,7 +17,10 @@ dependencies:
     path: ../components
   graphql:
     path: ../../services/graphql
+  theme:
+    path: ../../services/theme
   bloc: ^6.1.1
+  easy_localization: ^2.3.3
   equatable: ^1.2.6
   flutter_bloc: ^6.1.1
   get_it: ^5.0.1

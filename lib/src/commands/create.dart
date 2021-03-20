@@ -49,18 +49,32 @@ class Create extends Command<int> {
 
   @override
   Future<int> run() async {
+    _logger
+      ..flush(_logger.success)
+      ..alert('Hockety pockety, wockety wack\nAbra, cabra, dabra, da')
+      ..info('\n');
+
     final outputDirectory = _outputDirectory;
     final projectName = _projectName;
     final generateDone = _logger.progress('Bootstrapping');
-    final templateBundle = await generateTemplate();
+    final templateBundle = await generateTemplate('lib/src/template/files/');
     final generator = await _generator(templateBundle);
     final fileCount = await generator.generate(
       DirectoryGeneratorTarget(outputDirectory, _logger),
-      vars: {'project_name': projectName},
+      vars: {
+        'project_name': projectName,
+        'project_name_capitalize':
+            '${projectName[0].toUpperCase()}${projectName.substring(1)}'
+      },
     );
 
     generateDone('Bootstrapping complete');
     _logSummary(fileCount);
+
+    _logger
+      ..info('\n')
+      ..flush(_logger.success)
+      ..alert('Higitus figitus, figitus sbum\nPresti-digi-torium');
 
     return ExitCode.success.code;
   }
