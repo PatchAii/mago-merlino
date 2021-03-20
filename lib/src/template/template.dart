@@ -7,7 +7,8 @@ import 'package:meta/meta.dart';
 Future<MasonBundle> generateTemplate(String root) async {
   final list = <FileTemplate>[];
 
-  final file = Glob('{**.dart,**.yaml,**.graphql,**.md,LICENSE,.gitignore}');
+  final file =
+      Glob('{**.dart,**.yaml,**.graphql,**.md,LICENSE,.gitignore,**.svg}');
 
   for (var entity in file.listSync(root: root)) {
     final filename = entity.path.replaceAll(root, '');
@@ -15,14 +16,27 @@ Future<MasonBundle> generateTemplate(String root) async {
     list.add(fileTemplate);
   }
 
-  return MasonBundle.fromJson(
-    {
-      'files': [
-        for (var i = 0; i < list.length; i++)
-          {'path': list[i].path, 'data': list[i].data, 'type': list[i].type}
-      ]
-    },
+  final m = {
+    'files': [
+      for (var i = 0; i < list.length; i++)
+        {'path': list[i].path, 'data': list[i].data, 'type': list[i].type}
+    ]
+  };
+
+  await File('lib/src/template/templateBundle.dart').writeAsString(
+    '''
+// ignore_for_file: prefer_single_quotes
+import \'package:mason/mason.dart\';
+
+final templateBundle = MasonBundle.fromJson(${getPrettyJSONString(m)});
+''',
+    mode: FileMode.write,
   );
+}
+
+String getPrettyJSONString(jsonObject) {
+  final encoder = const JsonEncoder.withIndent('    ');
+  return encoder.convert(jsonObject);
 }
 
 Future<FileTemplate> _fileToBase64(String filename) async {
@@ -34,7 +48,7 @@ Future<FileTemplate> _fileToBase64(String filename) async {
   return FileTemplate(
     data: fileBase64,
     path: filename,
-    type: 'text',
+    type: filename.contains('svg') ? 'binary' : 'text',
   );
 }
 

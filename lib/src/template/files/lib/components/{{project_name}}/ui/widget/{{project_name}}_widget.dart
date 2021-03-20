@@ -9,7 +9,7 @@ class {{project_name_capitalize}}Widget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('{{project_name_capitalize}}Widget'),
+        const Text('{{project_name_capitalize}}Widget'),
       ],
     );
   }

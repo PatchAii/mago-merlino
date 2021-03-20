@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'TODO' show CodegenLoader;
 import 'package:theme/theme.dart';
 import 'package:theme/theme_fields.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
@@ -12,22 +10,13 @@ class GoldenTestUtils {
   static Widget configureMaterialApp(Widget widget) {
     final theme = _buildTheme();
 
-    return EasyLocalization(
-      supportedLocales: [
-        const Locale('it'),
-      ],
-      path: 'TODO',
-      fallbackLocale: const Locale('it'),
-      useOnlyLangCode: true,
-      assetLoader: const CodegenLoader(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: theme.themeDataLight,
-        themeMode: ThemeMode.light,
-        home: Material(
-          child: Center(
-            child: widget,
-          ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: theme.themeDataLight,
+      themeMode: ThemeMode.light,
+      home: Material(
+        child: Center(
+          child: widget,
         ),
       ),
     );

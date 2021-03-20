@@ -1,3 +1,4 @@
+import 'package:{{project_name}}/components/{{project_name}}/bloc/{{project_name}}_bloc.dart';
 import 'package:components/ui/widgets/common/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +22,7 @@ class {{project_name_capitalize}}Page extends StatelessWidget {
             backgroundColor:
                 PatchAiThemeFields.of(context).scaffoldBackgroundColor,
             appBar: TopBar(),
-            body: Center(
+            body: const Center(
               child: Text('{{project_name_capitalize}}Page'),
             ),
           );

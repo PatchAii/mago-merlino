@@ -6,7 +6,7 @@ import 'package:io/ansi.dart';
 import 'package:io/io.dart';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
-import 'package:patchai_flutter_cli/src/template/template.dart';
+import 'package:patchai_flutter_cli/src/template/templateBundle.dart';
 import 'package:path/path.dart' as path;
 
 final RegExp _identifierRegExp = RegExp('[a-z_][a-z0-9_]*');
@@ -57,7 +57,7 @@ class Create extends Command<int> {
     final outputDirectory = _outputDirectory;
     final projectName = _projectName;
     final generateDone = _logger.progress('Bootstrapping');
-    final templateBundle = await generateTemplate('lib/src/template/files/');
+    //final templateBundle = await generateTemplate('lib/src/template/files/');
     final generator = await _generator(templateBundle);
     final fileCount = await generator.generate(
       DirectoryGeneratorTarget(outputDirectory, _logger),

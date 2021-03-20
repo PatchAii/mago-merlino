@@ -6,11 +6,11 @@ input {{project_name_capitalize}}Input {
   {{project_name}}: Int
 }
 type {{project_name_capitalize}} {
-  {{project_name}}: String!
+  id: String!
 }
 type Query {
   query{{project_name_capitalize}}: {{project_name_capitalize}}!
 }
 type Mutation {
-  mutation{{project_name_capitalize}}(${{project_name}}: String!): String!
+  mutation{{project_name_capitalize}}({{project_name}}: String!): String!
 }
