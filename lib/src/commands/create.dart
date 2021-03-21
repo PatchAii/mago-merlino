@@ -6,7 +6,7 @@ import 'package:io/ansi.dart';
 import 'package:io/io.dart';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
-import 'package:patchai_flutter_cli/src/template/templateBundle.dart';
+import 'package:mago_merlino/src/template/templateBundle.dart';
 import 'package:path/path.dart' as path;
 
 final RegExp _identifierRegExp = RegExp('[a-z_][a-z0-9_]*');
