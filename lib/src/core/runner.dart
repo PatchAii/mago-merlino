@@ -1,8 +1,8 @@
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
+import 'package:mago_merlino/src/commands/commands.dart';
 import 'package:mason/mason.dart';
-import 'package:mago_merlino/src/commands/create.dart';
 
 import '../version/version.dart';
 
@@ -17,7 +17,8 @@ class Runner extends CommandRunner<int> {
         negatable: false,
         help: 'Print the current version.',
       );
-    addCommand(Create(logger: logger));
+    addCommand(CreateModule(logger: logger));
+    addCommand(UpdateModule(logger: logger));
   }
 
   static const timeout = Duration(milliseconds: 500);

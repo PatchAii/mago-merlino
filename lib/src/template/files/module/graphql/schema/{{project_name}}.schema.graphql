@@ -1,0 +1,16 @@
+enum {{project_name_capitalize}}Type {
+  {{project_name_capitalize}}
+}
+
+input {{project_name_capitalize}}Input {
+  {{project_name}}: Int
+}
+type {{project_name_capitalize}} {
+  id: String!
+}
+type Query {
+  query{{project_name_capitalize}}: {{project_name_capitalize}}!
+}
+type Mutation {
+  mutation{{project_name_capitalize}}({{project_name}}: String!): String!
+}

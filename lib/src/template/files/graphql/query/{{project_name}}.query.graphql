@@ -1,5 +1,0 @@
-query query{{project_name_capitalize}}() {
-  query{{project_name_capitalize}}() {
-    id
-  }
-}

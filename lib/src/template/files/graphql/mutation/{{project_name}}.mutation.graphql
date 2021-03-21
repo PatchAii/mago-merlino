@@ -1,4 +1,0 @@
-mutation mutation{{project_name_capitalize}}(${{project_name}}: String!) {
-  mutation{{project_name_capitalize}}({{project_name}}: ${{project_name}})
-}
-

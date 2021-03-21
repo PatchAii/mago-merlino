@@ -11,7 +11,7 @@ Future<void> generateTemplate(String root) async {
 
   for (var entity in file.listSync(root: root)) {
     final filename = entity.path.replaceAll(root, '');
-    final fileTemplate = await _fileToBase64(filename);
+    final fileTemplate = await _fileToBase64(filename, root);
     list.add(fileTemplate);
   }
 
@@ -22,12 +22,12 @@ Future<void> generateTemplate(String root) async {
     ]
   };
 
-  await File('lib/src/template/templateBundle.dart').writeAsString(
+  await File('lib/src/template/bundle/flutterModuleBundle.dart').writeAsString(
     '''
 // ignore_for_file: prefer_single_quotes
 import \'package:mason/mason.dart\';
 
-final templateBundle = MasonBundle.fromJson(${getPrettyJSONString(m)});
+final flutterModuleBundle = MasonBundle.fromJson(${getPrettyJSONString(m)});
 ''',
     mode: FileMode.write,
   );
@@ -38,9 +38,8 @@ String getPrettyJSONString(jsonObject) {
   return encoder.convert(jsonObject);
 }
 
-Future<FileTemplate> _fileToBase64(String filename) async {
-  final contents =
-      await File('lib/src/template/files/$filename').readAsString();
+Future<FileTemplate> _fileToBase64(String filename, String root) async {
+  final contents = await File('$root$filename').readAsString();
 
   final fileBase64 = base64.encode(utf8.encode(contents));
 

@@ -1,16 +1,42 @@
-# patchai_flutter_cli
+# ✨ Mago Merlino ✨
 
-## Mago Merlino
+## Features
 
-A new Flutter package project.
+Generates flutter modules
 
-## Getting Started
+> Heavily inspired by [very_good_cli](<https://github.com/VeryGoodOpenSource/very_good_cli>)
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Installation
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Move the `mago_merlin` file to the root of your project.
+
+In the future:
+
+```sh
+dart pub global activate mago_merlino
+```
+
+## Commands
+
+* `mago_merlino create-module abc`
+Creates a new flutter module project in the root.
+
+* `mago_merlino create-module --path packages/abc`
+Creates a new flutter module project in the specified directory.
+
+* `mago_merlino update-module`
+Updates the template of the flutter module project
+
+### Building for source
+
+* To run locally:
+
+```sh
+dart bin/mago_merlino.dart command_name
+```
+
+* For Sproduction release:
+
+```sh
+dart2native bin/mago_merlino.dart -o mago_merlino
+```
