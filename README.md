@@ -8,7 +8,7 @@ Generates flutter modules
 
 ## Installation
 
-Move the `mago_merlin` file to the root of your project.
+Move the `mago_merlino` file to the root of your project.
 
 In the future:
 
