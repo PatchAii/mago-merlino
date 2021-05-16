@@ -18,6 +18,10 @@ dart pub global activate mago_merlino
 
 ## Commands
 
+---
+
+### create-module
+
 * `mago_merlino create-module abc`
 Creates a new flutter module project in the root.
 
@@ -27,7 +31,22 @@ Creates a new flutter module project in the specified directory.
 * `mago_merlino update-module`
 Updates the template of the flutter module project
 
-### Building for source
+---
+
+### create-feature
+
+* `mago_merlino create-feature abc`
+Creates a new flutter feature project in the root.
+
+* `mago_merlino create-feature --path lib/feature/abc`
+Creates a new flutter feature project in the specified directory.
+
+* `mago_merlino update-feature`
+Updates the template of the flutter feature project
+
+---
+
+## Building for source
 
 * To run locally:
 
@@ -35,7 +54,7 @@ Updates the template of the flutter module project
 dart bin/mago_merlino.dart command_name
 ```
 
-* For Sproduction release:
+* For production release:
 
 ```sh
 dart2native bin/mago_merlino.dart -o mago_merlino

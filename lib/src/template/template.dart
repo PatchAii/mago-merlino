@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:glob/glob.dart';
 import 'package:meta/meta.dart';
 
-Future<void> generateTemplate(String root) async {
+Future<void> generateTemplate(String root, String fileName) async {
   final list = <FileTemplate>[];
 
   final file =
@@ -22,12 +22,12 @@ Future<void> generateTemplate(String root) async {
     ]
   };
 
-  await File('lib/src/template/bundle/flutterModuleBundle.dart').writeAsString(
+  await File('lib/src/template/bundle/$fileName.dart').writeAsString(
     '''
 // ignore_for_file: prefer_single_quotes
 import \'package:mason/mason.dart\';
 
-final flutterModuleBundle = MasonBundle.fromJson(${getPrettyJSONString(m)});
+final $fileName = MasonBundle.fromJson(${getPrettyJSONString(m)});
 ''',
     mode: FileMode.write,
   );
