@@ -2,7 +2,7 @@
 
 ## Features
 
-Generates flutter modules
+Generates flutter feature BLOC/REPO/VIEW
 
 > Heavily inspired by [very_good_cli](<https://github.com/VeryGoodOpenSource/very_good_cli>)
 
@@ -17,19 +17,6 @@ dart pub global activate mago_merlino
 ```
 
 ## Commands
-
----
-
-### create-module
-
-* `mago_merlino create-module abc`
-Creates a new flutter module project in the root.
-
-* `mago_merlino create-module --path packages/abc`
-Creates a new flutter module project in the specified directory.
-
-* `mago_merlino update-module`
-Updates the template of the flutter module project
 
 ---
 

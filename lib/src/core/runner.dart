@@ -16,8 +16,6 @@ class Runner extends CommandRunner<int> {
       negatable: false,
       help: 'Print the current version.',
     );
-    addCommand(CreateModule(logger: logger));
-    addCommand(UpdateModule(logger: logger));
 
     addCommand(CreateFeature(logger: logger));
     addCommand(UpdateFeature(logger: logger));

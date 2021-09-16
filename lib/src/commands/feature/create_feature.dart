@@ -4,13 +4,13 @@ import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/ansi.dart';
 import 'package:io/io.dart';
-import 'package:mago_merlino/src/commands/commands.dart';
 import 'package:mago_merlino/src/template/bundle/flutterFeatureBundle.dart';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
 final RegExp _identifierRegExp = RegExp('[a-z_][a-z0-9_]*');
+typedef GeneratorBuilder = Future<MasonGenerator> Function(MasonBundle);
 
 class CreateFeature extends Command<int> {
   CreateFeature({
