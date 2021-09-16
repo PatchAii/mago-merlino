@@ -89,8 +89,7 @@ class CreateFeature extends Command<int> {
         'Generated $fileCount file(s):',
       )
       ..flush(_logger.success)
-      ..info('\n')
-      ..alert('Created a new Flutter feature');
+      ..info('\n');
   }
 
   String get _projectName {
