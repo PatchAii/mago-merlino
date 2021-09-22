@@ -33,7 +33,7 @@ Updates the template of the flutter feature project
 
 ---
 
-## Building for source
+## Building from source
 
 * To run locally:
 
