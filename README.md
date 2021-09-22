@@ -10,10 +10,12 @@ Generates flutter feature BLOC/REPO/VIEW
 
 Move the `mago_merlino` file to the root of your project.
 
-In the future:
+or
 
 ```sh
-dart pub global activate mago_merlino
+dart pub global activate -sgit https://github.com/PatchAii/mago-merlino.git
+pub run mago_merlino create-feature abc
+pub run mago_merlino create-feature abc --path lib/feature/abc
 ```
 
 ## Commands
@@ -22,13 +24,13 @@ dart pub global activate mago_merlino
 
 ### create-feature
 
-* `mago_merlino create-feature abc`
+* `pub run mago_merlino create-feature abc`
 Creates a new flutter feature project in the root.
 
-* `mago_merlino create-feature --path lib/feature/abc`
+* `pub run mago_merlino create-feature --path lib/feature/abc`
 Creates a new flutter feature project in the specified directory.
 
-* `mago_merlino update-feature`
+* `pub run mago_merlino update-feature`
 Updates the template of the flutter feature project
 
 ---
