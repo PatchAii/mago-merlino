@@ -22,7 +22,7 @@ class {{project_name_capitalize}}Bloc extends Bloc<{{project_name_capitalize}}Ev
   final {{project_name_capitalize}}Repo repo;
 
   Future _fetch(_Fetch event, Emitter<{{project_name_capitalize}}State> emit) async {
-    final {{project_name}} = await {{project_name}}Repo.get{{project_name_capitalize}}();
-    emit(const {{project_name_capitalize}}State.loaded({{project_name}}));
+    final {{project_name}} = await repo.get{{project_name_capitalize}}();
+    emit({{project_name_capitalize}}State.loaded({{project_name}}));
   }
 }
