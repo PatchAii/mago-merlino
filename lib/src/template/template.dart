@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:glob/glob.dart';
-import 'package:meta/meta.dart';
+import 'package:glob/list_local_fs.dart';
 
 Future<void> generateTemplate(String root, String fileName) async {
   final list = <FileTemplate>[];
@@ -16,6 +17,9 @@ Future<void> generateTemplate(String root, String fileName) async {
   }
 
   final m = {
+    'name': 'feature',
+    'description': 'feature description',
+    'vars': [],
     'files': [
       for (var i = 0; i < list.length; i++)
         {'path': list[i].path, 'data': list[i].data, 'type': list[i].type}
@@ -29,7 +33,6 @@ import \'package:mason/mason.dart\';
 
 final $fileName = MasonBundle.fromJson(${getPrettyJSONString(m)});
 ''',
-    mode: FileMode.write,
   );
 }
 
@@ -56,8 +59,8 @@ class FileTemplate {
   final String type;
 
   FileTemplate({
-    @required this.path,
-    @required this.data,
-    @required this.type,
+    required this.path,
+    required this.data,
+    required this.type,
   });
 }

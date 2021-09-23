@@ -14,8 +14,8 @@ typedef GeneratorBuilder = Future<MasonGenerator> Function(MasonBundle);
 
 class CreateFeature extends Command<int> {
   CreateFeature({
-    Logger logger,
-    GeneratorBuilder generator,
+    Logger? logger,
+    GeneratorBuilder? generator,
   })  : _logger = logger ?? Logger(),
         _generator = generator ?? MasonGenerator.fromBundle {
     argParser.addOption(
@@ -47,9 +47,9 @@ class CreateFeature extends Command<int> {
   String get invocation => 'mago_merlino create-feature <output directory>';
 
   @visibleForTesting
-  ArgResults argResultOverrides;
+  ArgResults? argResultOverrides;
 
-  ArgResults get _argResults => argResultOverrides ?? argResults;
+  ArgResults? get _argResults => argResultOverrides ?? argResults;
 
   @override
   Future<int> run() async {
@@ -60,7 +60,8 @@ class CreateFeature extends Command<int> {
 
     final outputDirectory = _outputDirectory;
     final projectName = _projectName;
-    final generateDone = _logger.progress('Bootstrapping');
+    final void Function([String]) generateDone =
+        _logger.progress('Bootstrapping');
     final generator = await _generator(flutterFeatureBundle);
     final fileCount = await generator.generate(
       DirectoryGeneratorTarget(outputDirectory, _logger),
@@ -93,7 +94,7 @@ class CreateFeature extends Command<int> {
   }
 
   String get _projectName {
-    final projectName = _argResults['project-name'] ??
+    final projectName = _argResults!['project-name'] ??
         path.basename(path.normalize(_outputDirectory.absolute.path));
     _validateProjectName(projectName);
     return projectName;
@@ -116,7 +117,7 @@ class CreateFeature extends Command<int> {
   }
 
   Directory get _outputDirectory {
-    final rest = _argResults.rest;
+    final rest = _argResults!.rest;
     _validateOutputDirectoryArg(rest);
     return Directory(rest.first);
   }

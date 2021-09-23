@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
@@ -7,7 +9,7 @@ import 'package:mason/mason.dart';
 import '../version/version.dart';
 
 class Runner extends CommandRunner<int> {
-  Runner({Logger logger})
+  Runner({Logger? logger})
       : _logger = logger ?? Logger(),
         super('mago_merlino',
             'Hockety pockety, wockety wack\nAbra, cabra, dabra, da') {
@@ -47,7 +49,7 @@ class Runner extends CommandRunner<int> {
   }
 
   @override
-  Future<int> runCommand(ArgResults topLevelResults) async {
+  Future<int?> runCommand(ArgResults topLevelResults) async {
     if (topLevelResults['version'] == true) {
       _logger.info('mago_merlino version: $packageVersion');
       return ExitCode.success.code;

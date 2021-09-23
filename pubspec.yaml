@@ -1,22 +1,20 @@
 name: mago_merlino
 description: ""
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/dbbd59/mago-merlino
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  args: ^1.6.0
-  io: ^0.3.4
-  mason: ^0.0.1-dev.26
-  meta: ^1.2.4
-  glob: ^1.2.0
-  path: ^1.7.0
-  usage: ^3.4.2
+  args: ^2.3.0
+  io: ^1.0.3
+  mason: ^0.0.1-dev.47
+  meta: ^1.7.0
+  glob: ^2.0.1
+  path: ^1.8.0
+  usage: ^4.0.2
 
 dev_dependencies:
-  build_runner: ^1.10.0
-  build_verify: ^1.1.1
-  build_version: ^2.0.1
-  ficcanaso: ^2.0.3
+  build_runner: ^2.1.2
+  ficcanaso: ^2.0.7

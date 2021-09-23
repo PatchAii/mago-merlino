@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 
 class UpdateFeature extends Command<int> {
   UpdateFeature({
-    Logger logger,
+    Logger? logger,
   }) : _logger = logger ?? Logger();
 
   final Logger _logger;
@@ -26,7 +26,7 @@ class UpdateFeature extends Command<int> {
   String get invocation => 'mago_merlino update-feature';
 
   @visibleForTesting
-  ArgResults argResultOverrides;
+  ArgResults? argResultOverrides;
 
   @override
   Future<int> run() async {
@@ -35,7 +35,8 @@ class UpdateFeature extends Command<int> {
       ..alert('Hockety pockety, wockety wack\nAbra, cabra, dabra, da')
       ..info('\n');
 
-    final generateDone = _logger.progress('Updating feature template');
+    final void Function([String]) generateDone =
+        _logger.progress('Updating feature template');
     await generateTemplate(
       'lib/src/template/files/feature/',
       'flutterFeatureBundle',

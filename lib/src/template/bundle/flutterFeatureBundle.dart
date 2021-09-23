@@ -2,6 +2,9 @@
 import 'package:mason/mason.dart';
 
 final flutterFeatureBundle = MasonBundle.fromJson({
+    "name": "feature",
+    "description": "feature description",
+    "vars": [],
     "files": [
         {
             "path": "{{project_name}}.dart",
