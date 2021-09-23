@@ -56,6 +56,8 @@ class CreateFeature extends Command<int> {
     _logger
       ..flush(_logger.success)
       ..alert('✨✨✨ Hockety pockety, wockety wack\nAbra, cabra, dabra, da ✨✨✨')
+      ..info('\n')
+      ..alert('🎶 https://www.youtube.com/watch?v=Tb75RjpvBIk 🎶')
       ..info('\n');
 
     final outputDirectory = _outputDirectory;
