@@ -13,7 +13,11 @@ Move the `mago_merlino` file to the root of your project.
 or
 
 ```sh
+dart pub global activate mago_merlino
+or
 dart pub global activate -sgit https://github.com/PatchAii/mago-merlino.git
+
+
 dart pub global run mago_merlino:mago_merlino create-feature abc
 dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature/abc
 ```
