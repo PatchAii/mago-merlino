@@ -33,7 +33,7 @@ final flutterFeatureBundle = MasonBundle.fromJson({
         },
         {
             "path": "bloc/{{project_name}}_state.dart",
-            "data": "cGFydCBvZiAne3twcm9qZWN0X25hbWV9fV9ibG9jLmRhcnQnOwoKQGZyZWV6ZWQKY2xhc3Mge3twcm9qZWN0X25hbWVfY2FwaXRhbGl6ZX19U3RhdGUgd2l0aCBfJHt7cHJvamVjdF9uYW1lX2NhcGl0YWxpemV9fVN0YXRlIHsKICBjb25zdCBmYWN0b3J5IHt7cHJvamVjdF9uYW1lX2NhcGl0YWxpemV9fVN0YXRlLmxvYWRpbmcoKSA9IF9Mb2FkaW5nOwogIGNvbnN0IGZhY3Rvcnkge3twcm9qZWN0X25hbWVfY2FwaXRhbGl6ZX19U3RhdGUubG9hZGVkKFN0cmluZyB7e3Byb2plY3RfbmFtZX19KSA9IF9Mb2FkZWQ7Cn0K",
+            "data": "cGFydCBvZiAne3twcm9qZWN0X25hbWV9fV9ibG9jLmRhcnQnOwoKQGZyZWV6ZWQKY2xhc3Mge3twcm9qZWN0X25hbWVfY2FwaXRhbGl6ZX19U3RhdGUgd2l0aCBfJHt7cHJvamVjdF9uYW1lX2NhcGl0YWxpemV9fVN0YXRlIHsKICBjb25zdCBmYWN0b3J5IHt7cHJvamVjdF9uYW1lX2NhcGl0YWxpemV9fVN0YXRlLmxvYWRlZChTdHJpbmcge3twcm9qZWN0X25hbWV9fSkgPSBfTG9hZGVkOwogIGNvbnN0IGZhY3Rvcnkge3twcm9qZWN0X25hbWVfY2FwaXRhbGl6ZX19U3RhdGUubG9hZGluZygpID0gX0xvYWRpbmc7Cn0K",
             "type": "text"
         },
         {

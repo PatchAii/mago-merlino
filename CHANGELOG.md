@@ -1,3 +1,8 @@
+
+## [0.0.4]
+
+* bloc state order.
+
 ## [0.0.3]
 
 * fixes for pana.
