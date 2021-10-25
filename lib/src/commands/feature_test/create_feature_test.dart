@@ -69,8 +69,8 @@ class CreateFeatureTest extends Command<int> {
     final fileCount = await generator.generate(
       DirectoryGeneratorTarget(outputDirectory, _logger),
       vars: {
-        'project_name': projectName,
-        'project_name_capitalize':
+        'feature_name': projectName,
+        'feature_name_capitalize':
             '${projectName[0].toUpperCase()}${projectName.substring(1)}'
       },
     );

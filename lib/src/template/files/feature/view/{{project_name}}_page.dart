@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:CHANGEME/core/core.dart';
-import 'package:CHANGEME/feature/{{project_name}}/bloc/{{project_name}}_bloc.dart';
-import 'package:CHANGEME/feature/{{project_name}}/view/widget/{{project_name}}_widget.dart';
+import 'package:CHANGEME/feature/{{feature_name}}/bloc/{{feature_name}}_bloc.dart';
+import 'package:CHANGEME/feature/{{feature_name}}/view/widget/{{feature_name}}_widget.dart';
 
-class {{project_name_capitalize}}PageBuilder extends StatelessWidget {
-  const {{project_name_capitalize}}PageBuilder({
+class {{feature_name_capitalize}}PageBuilder extends StatelessWidget {
+  const {{feature_name_capitalize}}PageBuilder({
     Key? key,
   }) : super(key: key);
 
@@ -13,13 +13,13 @@ class {{project_name_capitalize}}PageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          getIt<{{project_name_capitalize}}Bloc>()..add(const {{project_name_capitalize}}Event.fetch()),
+          getIt<{{feature_name_capitalize}}Bloc>()..add(const {{feature_name_capitalize}}Event.fetch()),
       child: Builder(
         builder: (context) {
-          return BlocBuilder<{{project_name_capitalize}}Bloc, {{project_name_capitalize}}State>(
+          return BlocBuilder<{{feature_name_capitalize}}Bloc, {{feature_name_capitalize}}State>(
             builder: (context, state) {
               return state.map(
-                loaded: (state) => const {{project_name_capitalize}}Page(),
+                loaded: (state) => const {{feature_name_capitalize}}Page(),
                 loading: (state) => const Center(
                   child: CircularProgressIndicator(),
                 ),
@@ -32,14 +32,14 @@ class {{project_name_capitalize}}PageBuilder extends StatelessWidget {
   }
 }
 
-class {{project_name_capitalize}}Page extends StatelessWidget {
-  const {{project_name_capitalize}}Page({
+class {{feature_name_capitalize}}Page extends StatelessWidget {
+  const {{feature_name_capitalize}}Page({
     Key? key,
   }) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
-    return const {{project_name_capitalize}}Widget();
+    return const {{feature_name_capitalize}}Widget();
   }
 }
