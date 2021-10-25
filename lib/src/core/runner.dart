@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
-import 'package:mago_merlino/src/commands/commands.dart';
+import 'package:mago_merlino/src/commands/feature/feature.dart';
+import 'package:mago_merlino/src/commands/feature_test/feature_test.dart';
 import 'package:mason/mason.dart';
 
 import '../version/version.dart';
@@ -21,6 +22,8 @@ class Runner extends CommandRunner<int> {
 
     addCommand(CreateFeature(logger: logger));
     addCommand(UpdateFeature(logger: logger));
+    addCommand(CreateFeatureTest(logger: logger));
+    addCommand(UpdateFeatureTest(logger: logger));
   }
 
   static const timeout = Duration(milliseconds: 500);
