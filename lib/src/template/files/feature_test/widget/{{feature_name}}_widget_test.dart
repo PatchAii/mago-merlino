@@ -1,5 +1,4 @@
 import 'package:{{package_name}}/core/core.dart';
-import 'package:{{package_name}}/feature/feature.dart';
 import 'package:{{package_name}}/feature/{{feature_name}}/{{feature_name}}.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';

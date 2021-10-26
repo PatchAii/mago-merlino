@@ -24,7 +24,7 @@ void main() {
       'emits [{{feature_name_capitalize}}State.loaded] when fetch is added',
       setUp: () {
         when(() => repo.get{{feature_name_capitalize}}()).thenAnswer(
-          (_) => Future.value([]),
+          (_) => Future.value('{{feature_name}}'),
         );
       },
       build: () => _getBloc(repo),
