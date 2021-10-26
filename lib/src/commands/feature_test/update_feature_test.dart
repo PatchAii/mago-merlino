@@ -13,8 +13,7 @@ class UpdateFeatureTest extends Command<int> {
   final Logger _logger;
 
   @override
-  String get description =>
-      'Updates the template of the flutter feature test project';
+  String get description => 'Updates the template of the flutter feature test';
 
   @override
   String get summary => '$invocation\n$description';

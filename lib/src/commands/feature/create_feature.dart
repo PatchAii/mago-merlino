@@ -7,7 +7,6 @@ import 'package:io/io.dart';
 import 'package:mago_merlino/src/template/bundle/flutterFeatureBundle.dart';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
-import 'package:path/path.dart' as path;
 
 import '../commands.dart';
 
@@ -20,19 +19,14 @@ class CreateFeature extends Command<int> {
   })  : _logger = logger ?? Logger(),
         _generator = generator ?? MasonGenerator.fromBundle {
     argParser.addOption(
-      'feature-name',
-      help: 'The project name for this new Flutter feature. '
+      'package-name',
+      help: 'The package name for this new Flutter feature. '
           'This must be a valid dart package name.',
-    );
-    argParser.addFlag(
-      'path',
-      abbr: 'p',
-      help: 'The path directory name for this new Flutter feature. ',
     );
     argParser.addOption(
-      'package-name',
-      help: 'The project name for this new Flutter feature. '
-          'This must be a valid dart package name.',
+      'path',
+      abbr: 'p',
+      help: 'The path directory name for this new Flutter feature.',
     );
   }
 
@@ -41,7 +35,7 @@ class CreateFeature extends Command<int> {
 
   @override
   String get description =>
-      'Creates a new flutter feature project in the specified directory.';
+      'Creates a new flutter feature in the specified directory.';
 
   @override
   String get summary => '$invocation\n$description';
@@ -50,7 +44,7 @@ class CreateFeature extends Command<int> {
   String get name => 'create-feature';
 
   @override
-  String get invocation => 'mago_merlino create-feature <output directory>';
+  String get invocation => 'mago_merlino create-feature <feature name>';
 
   @visibleForTesting
   ArgResults? argResultOverrides;
@@ -104,21 +98,27 @@ class CreateFeature extends Command<int> {
   }
 
   String get _packageName {
-    final packageName = _argResults!['package-name'] ?? 'CHANGEME';
-    _validateFeatureName(packageName);
+    final packageName = _argResults!['package-name'] ?? 'your_flutter_package';
+    _validatePackageName(packageName);
     return packageName;
   }
 
   String get _featureName {
-    final featureName = _argResults!['feature-name'] ??
-        path.basename(path.normalize(_outputDirectory.absolute.path));
-    _validateFeatureName(featureName);
+    final rest = _argResults!.rest;
+    _validateArg(rest);
+    final featureName = rest.first;
+    _validatePackageName(featureName); //Necessario??
     return featureName;
   }
 
-  void _validateFeatureName(String name) {
-    final isValidFeatureName = _isValidPackageName(name);
-    if (!isValidFeatureName) {
+  Directory get _outputDirectory {
+    final path = _argResults!['path'] ?? '';
+    return Directory(path + '/' + _featureName);
+  }
+
+  void _validatePackageName(String name) {
+    final isValidPackageName = _isValidPackageName(name);
+    if (!isValidPackageName) {
       throw UsageException(
         '"$name" is not a valid package name.\n\n'
         'See https://dart.dev/tools/pub/pubspec#name for more information.',
@@ -132,22 +132,16 @@ class CreateFeature extends Command<int> {
     return match != null && match.end == name.length;
   }
 
-  Directory get _outputDirectory {
-    final rest = _argResults!.rest;
-    _validateOutputDirectoryArg(rest);
-    return Directory(rest.first);
-  }
-
-  void _validateOutputDirectoryArg(List<String> args) {
+  void _validateArg(List<String> args) {
     if (args.isEmpty) {
       throw UsageException(
-        'No option specified for the output directory.',
+        'No feature name specified.',
         usage,
       );
     }
 
     if (args.length > 1) {
-      throw UsageException('Multiple output directories specified.', usage);
+      throw UsageException('Multiple feature names specified.', usage);
     }
   }
 }

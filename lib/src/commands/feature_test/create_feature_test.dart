@@ -20,8 +20,13 @@ class CreateFeatureTest extends Command<int> {
         _generator = generator ?? MasonGenerator.fromBundle {
     argParser.addOption(
       'package-name',
-      help: 'The project name for this new Flutter feature. '
+      help: 'The package name for this new Flutter feature. '
           'This must be a valid dart package name.',
+    );
+    argParser.addOption(
+      'path',
+      abbr: 'p',
+      help: 'The path directory name for this new Flutter feature.',
     );
   }
 
@@ -55,7 +60,7 @@ class CreateFeatureTest extends Command<int> {
       ..alert('🎶 https://www.youtube.com/watch?v=Tb75RjpvBIk 🎶')
       ..info('\n');
 
-    final outputDirectory = Directory('test');
+    final outputDirectory = _outputDirectory;
     final featureName = _featureName;
     final packageName = _packageName;
     final void Function([String]) generateDone =
@@ -96,14 +101,19 @@ class CreateFeatureTest extends Command<int> {
     final rest = _argResults!.rest;
     _validateArg(rest);
     final featureName = rest.first;
-    _validatePackageName(featureName);
+    _validatePackageName(featureName); //Necessario??
     return featureName;
   }
 
   String get _packageName {
-    final packageName = _argResults!['package-name'] ?? 'CHANGEME';
+    final packageName = _argResults!['package-name'] ?? 'your_flutter_package';
     _validatePackageName(packageName);
     return packageName;
+  }
+
+  Directory get _outputDirectory {
+    final path = _argResults!['path'] ?? '';
+    return Directory(path + '/' + 'test');
   }
 
   void _validatePackageName(String name) {
@@ -125,13 +135,13 @@ class CreateFeatureTest extends Command<int> {
   void _validateArg(List<String> args) {
     if (args.isEmpty) {
       throw UsageException(
-        'No option specified for the output directory.',
+        'No feature name specified.',
         usage,
       );
     }
 
     if (args.length > 1) {
-      throw UsageException('Multiple output directories specified.', usage);
+      throw UsageException('Multiple feature names specified.', usage);
     }
   }
 }

@@ -19,7 +19,7 @@ dart pub global activate -sgit https://github.com/PatchAii/mago-merlino.git
 
 
 dart pub global run mago_merlino:mago_merlino create-feature abc
-dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature/abc
+dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature
 ```
 
 ## Commands
@@ -29,13 +29,32 @@ dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feat
 ### create-feature
 
 * `dart pub global run mago_merlino:mago_merlino create-feature abc`
-Creates a new flutter feature project in the root.
+Creates a new flutter feature in the root.
 
-* `dart pub global run mago_merlino:mago_merlino create-feature --path lib/feature/abc`
-Creates a new flutter feature project in the specified directory.
+* `dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature`
+Creates a new flutter feature in the specified directory.
+
+* `dart pub global run mago_merlino:mago_merlino create-feature abc --package-name your_package_name`
+Creates a new flutter feature using your project package name.
 
 * `pub run mago_merlino update-feature`
-Updates the template of the flutter feature project
+Updates the template of the flutter feature
+
+---
+
+### create-feature-test
+
+* `dart pub global run mago_merlino:mago_merlino create-feature abc`
+Creates a new flutter feature test in the test folder, at root level.
+
+* `dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature`
+Creates a new flutter feature test in the test folder, inside the specified directory.
+
+* `dart pub global run mago_merlino:mago_merlino create-feature abc --package-name your_package_name`
+Creates a new flutter feature test using your project package name.
+
+* `pub run mago_merlino update-feature-test`
+Updates the template of the flutter feature test
 
 ---
 
