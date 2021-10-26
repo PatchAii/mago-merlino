@@ -20,7 +20,7 @@ class CreateFeature extends Command<int> {
   })  : _logger = logger ?? Logger(),
         _generator = generator ?? MasonGenerator.fromBundle {
     argParser.addOption(
-      'project-name',
+      'feature-name',
       help: 'The project name for this new Flutter feature. '
           'This must be a valid dart package name.',
     );
@@ -62,16 +62,16 @@ class CreateFeature extends Command<int> {
       ..info('\n');
 
     final outputDirectory = _outputDirectory;
-    final projectName = _projectName;
+    final featureName = _featureName;
     final void Function([String]) generateDone =
         _logger.progress('Bootstrapping');
     final generator = await _generator(flutterFeatureBundle);
     final fileCount = await generator.generate(
       DirectoryGeneratorTarget(outputDirectory, _logger),
       vars: {
-        'feature_name': projectName,
+        'feature_name': featureName,
         'feature_name_capitalize':
-            '${projectName[0].toUpperCase()}${projectName.substring(1)}'
+            '${featureName[0].toUpperCase()}${featureName.substring(1)}'
       },
     );
 
@@ -96,16 +96,16 @@ class CreateFeature extends Command<int> {
       ..info('\n');
   }
 
-  String get _projectName {
-    final projectName = _argResults!['project-name'] ??
+  String get _featureName {
+    final featureName = _argResults!['feature-name'] ??
         path.basename(path.normalize(_outputDirectory.absolute.path));
-    _validateProjectName(projectName);
-    return projectName;
+    _validateFeatureName(featureName);
+    return featureName;
   }
 
-  void _validateProjectName(String name) {
-    final isValidProjectName = _isValidPackageName(name);
-    if (!isValidProjectName) {
+  void _validateFeatureName(String name) {
+    final isValidFeatureName = _isValidPackageName(name);
+    if (!isValidFeatureName) {
       throw UsageException(
         '"$name" is not a valid package name.\n\n'
         'See https://dart.dev/tools/pub/pubspec#name for more information.',
