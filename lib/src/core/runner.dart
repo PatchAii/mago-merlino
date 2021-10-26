@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
-import 'package:mago_merlino/src/commands/feature/feature.dart';
-import 'package:mago_merlino/src/commands/feature_test/feature_test.dart';
+import 'package:mago_merlino/src/commands/commands.dart';
 import 'package:mason/mason.dart';
 
 import '../version/version.dart';

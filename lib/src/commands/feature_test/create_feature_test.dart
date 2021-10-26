@@ -9,8 +9,9 @@ import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
+import '../commands.dart';
+
 final RegExp _identifierRegExp = RegExp('[a-z_][a-z0-9_]*');
-typedef GeneratorBuilder = Future<MasonGenerator> Function(MasonBundle);
 
 class CreateFeatureTest extends Command<int> {
   CreateFeatureTest({
