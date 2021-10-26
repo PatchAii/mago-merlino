@@ -107,7 +107,7 @@ class CreateFeature extends Command<int> {
     final rest = _argResults!.rest;
     _validateArg(rest);
     final featureName = rest.first;
-    _validatePackageName(featureName); //Necessario??
+    _validatePackageName(featureName);
     return featureName;
   }
 
