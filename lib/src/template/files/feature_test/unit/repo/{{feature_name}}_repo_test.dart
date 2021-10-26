@@ -1,4 +1,4 @@
-import 'package:CHANGEME/feature/{{feature_name}}/repo/{{feature_name}}_repo.dart';
+import 'package:{{package_name}}/feature/{{feature_name}}/repo/{{feature_name}}_repo.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

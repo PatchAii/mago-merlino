@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:CHANGEME/feature/{{feature_name}}/bloc/{{feature_name}}_bloc.dart';
-import 'package:CHANGEME/feature/{{feature_name}}/repo/{{feature_name}}_repo.dart';
+import 'package:{{package_name}}/feature/{{feature_name}}/bloc/{{feature_name}}_bloc.dart';
+import 'package:{{package_name}}/feature/{{feature_name}}/repo/{{feature_name}}_repo.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -29,8 +29,9 @@ void main() {
       },
       build: () => _getBloc(repo),
       act: (bloc) => bloc.add(const {{feature_name_capitalize}}Event.fetch()),
-      expect: () =>
-        const {{feature_name_capitalize}}State.loaded('{{feature_name}}'),
+      expect: () =>[
+          const {{feature_name_capitalize}}State.loaded('{{feature_name}}'),
+        ],
     );
   });
 }

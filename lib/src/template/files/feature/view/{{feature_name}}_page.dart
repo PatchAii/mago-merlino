@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CHANGEME/core/core.dart';
-import 'package:CHANGEME/feature/{{feature_name}}/bloc/{{feature_name}}_bloc.dart';
-import 'package:CHANGEME/feature/{{feature_name}}/view/widget/{{feature_name}}_widget.dart';
+import 'package:{{package_name}}/core/core.dart';
+import 'package:{{package_name}}/feature/{{feature_name}}/bloc/{{feature_name}}_bloc.dart';
+import 'package:{{package_name}}/feature/{{feature_name}}/view/widget/{{feature_name}}_widget.dart';
 
 class {{feature_name_capitalize}}PageBuilder extends StatelessWidget {
   const {{feature_name_capitalize}}PageBuilder({

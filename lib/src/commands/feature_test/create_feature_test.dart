@@ -7,7 +7,6 @@ import 'package:io/io.dart';
 import 'package:mago_merlino/src/template/bundle/flutterFeatureTestBundle.dart';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
-import 'package:path/path.dart' as path;
 
 import '../commands.dart';
 
@@ -20,14 +19,9 @@ class CreateFeatureTest extends Command<int> {
   })  : _logger = logger ?? Logger(),
         _generator = generator ?? MasonGenerator.fromBundle {
     argParser.addOption(
-      'feature-name',
-      help: 'The project name for this new Flutter feature test. '
+      'package-name',
+      help: 'The project name for this new Flutter feature. '
           'This must be a valid dart package name.',
-    );
-    argParser.addFlag(
-      'path',
-      abbr: 'p',
-      help: 'The path directory name for this new Flutter feature test. ',
     );
   }
 
@@ -45,8 +39,7 @@ class CreateFeatureTest extends Command<int> {
   String get name => 'create-feature-test';
 
   @override
-  String get invocation =>
-      'mago_merlino create-feature-test <output directory>';
+  String get invocation => 'mago_merlino create-feature-test <feature name>';
 
   @visibleForTesting
   ArgResults? argResultOverrides;
@@ -62,8 +55,9 @@ class CreateFeatureTest extends Command<int> {
       ..alert('🎶 https://www.youtube.com/watch?v=Tb75RjpvBIk 🎶')
       ..info('\n');
 
-    final outputDirectory = _outputDirectory;
+    final outputDirectory = Directory('test');
     final featureName = _featureName;
+    final packageName = _packageName;
     final void Function([String]) generateDone =
         _logger.progress('Bootstrapping');
     final generator = await _generator(flutterFeatureTestBundle);
@@ -72,7 +66,8 @@ class CreateFeatureTest extends Command<int> {
       vars: {
         'feature_name': featureName,
         'feature_name_capitalize':
-            '${featureName[0].toUpperCase()}${featureName.substring(1)}'
+            '${featureName[0].toUpperCase()}${featureName.substring(1)}',
+        'package_name': packageName,
       },
     );
 
@@ -98,13 +93,20 @@ class CreateFeatureTest extends Command<int> {
   }
 
   String get _featureName {
-    final featureName = _argResults!['feature-name'] ??
-        path.basename(path.normalize(_outputDirectory.absolute.path));
-    _validateFeatureName(featureName);
+    final rest = _argResults!.rest;
+    _validateArg(rest);
+    final featureName = rest.first;
+    _validatePackageName(featureName);
     return featureName;
   }
 
-  void _validateFeatureName(String name) {
+  String get _packageName {
+    final packageName = _argResults!['package-name'] ?? 'CHANGEME';
+    _validatePackageName(packageName);
+    return packageName;
+  }
+
+  void _validatePackageName(String name) {
     final isValidFeatureName = _isValidPackageName(name);
     if (!isValidFeatureName) {
       throw UsageException(
@@ -120,13 +122,7 @@ class CreateFeatureTest extends Command<int> {
     return match != null && match.end == name.length;
   }
 
-  Directory get _outputDirectory {
-    final rest = _argResults!.rest;
-    _validateOutputDirectoryArg(rest);
-    return Directory(rest.first);
-  }
-
-  void _validateOutputDirectoryArg(List<String> args) {
+  void _validateArg(List<String> args) {
     if (args.isEmpty) {
       throw UsageException(
         'No option specified for the output directory.',

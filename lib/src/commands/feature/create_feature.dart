@@ -29,6 +29,11 @@ class CreateFeature extends Command<int> {
       abbr: 'p',
       help: 'The path directory name for this new Flutter feature. ',
     );
+    argParser.addOption(
+      'package-name',
+      help: 'The project name for this new Flutter feature. '
+          'This must be a valid dart package name.',
+    );
   }
 
   final Logger _logger;
@@ -63,6 +68,7 @@ class CreateFeature extends Command<int> {
 
     final outputDirectory = _outputDirectory;
     final featureName = _featureName;
+    final packageName = _packageName;
     final void Function([String]) generateDone =
         _logger.progress('Bootstrapping');
     final generator = await _generator(flutterFeatureBundle);
@@ -71,7 +77,8 @@ class CreateFeature extends Command<int> {
       vars: {
         'feature_name': featureName,
         'feature_name_capitalize':
-            '${featureName[0].toUpperCase()}${featureName.substring(1)}'
+            '${featureName[0].toUpperCase()}${featureName.substring(1)}',
+        'package_name': packageName,
       },
     );
 
@@ -94,6 +101,12 @@ class CreateFeature extends Command<int> {
       )
       ..flush(_logger.success)
       ..info('\n');
+  }
+
+  String get _packageName {
+    final packageName = _argResults!['package-name'] ?? 'CHANGEME';
+    _validateFeatureName(packageName);
+    return packageName;
   }
 
   String get _featureName {

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:CHANGEME/feature/{{feature_name}}/repo/{{feature_name}}_repo.dart';
+import 'package:{{package_name}}/feature/{{feature_name}}/repo/{{feature_name}}_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
