@@ -113,7 +113,7 @@ class CreateFeatureTest extends Command<int> {
 
   Directory get _outputDirectory {
     final path = _argResults!['path'] ?? '';
-    return Directory(path + '/' + 'test');
+    return Directory(path + 'test');
   }
 
   void _validatePackageName(String name) {

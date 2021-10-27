@@ -22,7 +22,7 @@ final flutterFeatureTestBundle = MasonBundle.fromJson({
             "type": "text"
         },
         {
-            "path": "utils/widget_builder.dart",
+            "path": "utils/{{widget_builder}}.dart",
             "data": "aW1wb3J0ICdwYWNrYWdlOmZsdXR0ZXIvbWF0ZXJpYWwuZGFydCc7CmltcG9ydCAncGFja2FnZTpnb2xkZW5fdG9vbGtpdC9nb2xkZW5fdG9vbGtpdC5kYXJ0JzsKaW1wb3J0ICdwYWNrYWdlOmxheW91dC9sYXlvdXQuZGFydCc7CgpEZXZpY2VCdWlsZGVyIGdldERlZmF1bHRCdWlsZGVyKFdpZGdldCBjaGlsZCkgewogIHJldHVybiBEZXZpY2VCdWlsZGVyKCkKICAgIC4ub3ZlcnJpZGVEZXZpY2VzRm9yQWxsU2NlbmFyaW9zKAogICAgICBkZXZpY2VzOiBbCiAgICAgICAgRGV2aWNlLnBob25lLAogICAgICAgIERldmljZS5pcGhvbmUxMSwKICAgICAgICBEZXZpY2UudGFibGV0UG9ydHJhaXQsCiAgICAgICAgRGV2aWNlLnRhYmxldExhbmRzY2FwZSwKICAgICAgXSwKICAgICkKICAgIC4uYWRkU2NlbmFyaW8oCiAgICAgIHdpZGdldDogTGF5b3V0KGNoaWxkOiBjaGlsZCksCiAgICApOwp9CgpXaWRnZXQgbW91bnRBcHAoV2lkZ2V0IGNoaWxkKSB7CiAgcmV0dXJuIE1hdGVyaWFsQXBwKAogICAgaG9tZTogY2hpbGQsCiAgKTsKfQo=",
             "type": "text"
         }
