@@ -112,7 +112,7 @@ class CreateFeatureTest extends Command<int> {
   }
 
   Directory get _outputDirectory {
-    final path = _argResults!['path'] ?? '';
+    final path = _argResults!['path'] != null ? _argResults!['path'] + '/' : '';
     return Directory(path + 'test');
   }
 

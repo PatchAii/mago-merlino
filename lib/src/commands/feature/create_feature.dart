@@ -112,8 +112,8 @@ class CreateFeature extends Command<int> {
   }
 
   Directory get _outputDirectory {
-    final path = _argResults!['path'] ?? '';
-    return Directory(path + '/' + _featureName);
+    final path = _argResults!['path'] != null ? _argResults!['path'] + '/' : '';
+    return Directory(path + _featureName);
   }
 
   void _validatePackageName(String name) {
