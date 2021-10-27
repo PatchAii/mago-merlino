@@ -1,4 +1,8 @@
 
+## [0.1.0]
+
+* adds test generation functionality.
+
 ## [0.0.4]
 
 * bloc state order.
