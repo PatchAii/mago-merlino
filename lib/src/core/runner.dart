@@ -21,6 +21,8 @@ class Runner extends CommandRunner<int> {
 
     addCommand(CreateFeature(logger: logger));
     addCommand(UpdateFeature(logger: logger));
+    addCommand(CreateFeatureTest(logger: logger));
+    addCommand(UpdateFeatureTest(logger: logger));
   }
 
   static const timeout = Duration(milliseconds: 500);

@@ -5,24 +5,24 @@ import 'package:mago_merlino/src/template/template.dart';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 
-class UpdateFeature extends Command<int> {
-  UpdateFeature({
+class UpdateFeatureTest extends Command<int> {
+  UpdateFeatureTest({
     Logger? logger,
   }) : _logger = logger ?? Logger();
 
   final Logger _logger;
 
   @override
-  String get description => 'Updates the template of the flutter feature';
+  String get description => 'Updates the template of the flutter feature test';
 
   @override
   String get summary => '$invocation\n$description';
 
   @override
-  String get name => 'update-feature';
+  String get name => 'update-feature-test';
 
   @override
-  String get invocation => 'mago_merlino update-feature';
+  String get invocation => 'mago_merlino update-feature-test';
 
   @visibleForTesting
   ArgResults? argResultOverrides;
@@ -37,11 +37,11 @@ class UpdateFeature extends Command<int> {
     final void Function([String]) generateDone =
         _logger.progress('Updating feature template');
     await generateTemplate(
-      'lib/src/template/files/feature/',
-      'flutterFeatureBundle',
+      'lib/src/template/files/feature_test/',
+      'flutterFeatureTestBundle',
     );
 
-    generateDone('Updating feature template complete');
+    generateDone('Updating feature test template complete');
 
     _logger
       ..info('\n')

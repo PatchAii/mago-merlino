@@ -4,7 +4,7 @@ import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/ansi.dart';
 import 'package:io/io.dart';
-import 'package:mago_merlino/src/template/bundle/flutterFeatureBundle.dart';
+import 'package:mago_merlino/src/template/bundle/flutterFeatureTestBundle.dart';
 import 'package:mason/mason.dart';
 import 'package:meta/meta.dart';
 
@@ -12,8 +12,8 @@ import '../commands.dart';
 
 final RegExp _identifierRegExp = RegExp('[a-z_][a-z0-9_]*');
 
-class CreateFeature extends Command<int> {
-  CreateFeature({
+class CreateFeatureTest extends Command<int> {
+  CreateFeatureTest({
     Logger? logger,
     GeneratorBuilder? generator,
   })  : _logger = logger ?? Logger(),
@@ -35,16 +35,16 @@ class CreateFeature extends Command<int> {
 
   @override
   String get description =>
-      'Creates a new flutter feature in the specified directory.';
+      'Creates a new flutter feature test in the test directory.';
 
   @override
   String get summary => '$invocation\n$description';
 
   @override
-  String get name => 'create-feature';
+  String get name => 'create-feature-test';
 
   @override
-  String get invocation => 'mago_merlino create-feature <feature name>';
+  String get invocation => 'mago_merlino create-feature-test <feature name>';
 
   @visibleForTesting
   ArgResults? argResultOverrides;
@@ -65,7 +65,7 @@ class CreateFeature extends Command<int> {
     final packageName = _packageName;
     final void Function([String]) generateDone =
         _logger.progress('Bootstrapping');
-    final generator = await _generator(flutterFeatureBundle);
+    final generator = await _generator(flutterFeatureTestBundle);
     final fileCount = await generator.generate(
       DirectoryGeneratorTarget(outputDirectory, _logger),
       vars: {
@@ -97,12 +97,6 @@ class CreateFeature extends Command<int> {
       ..info('\n');
   }
 
-  String get _packageName {
-    final packageName = _argResults!['package-name'] ?? 'your_flutter_package';
-    _validatePackageName(packageName);
-    return packageName;
-  }
-
   String get _featureName {
     final rest = _argResults!.rest;
     _validateArg(rest);
@@ -111,14 +105,20 @@ class CreateFeature extends Command<int> {
     return featureName;
   }
 
+  String get _packageName {
+    final packageName = _argResults!['package-name'] ?? 'your_flutter_package';
+    _validatePackageName(packageName);
+    return packageName;
+  }
+
   Directory get _outputDirectory {
     final path = _argResults!['path'] ?? '';
-    return Directory(path + '/' + _featureName);
+    return Directory(path + '/' + 'test');
   }
 
   void _validatePackageName(String name) {
-    final isValidPackageName = _isValidPackageName(name);
-    if (!isValidPackageName) {
+    final isValidFeatureName = _isValidPackageName(name);
+    if (!isValidFeatureName) {
       throw UsageException(
         '"$name" is not a valid package name.\n\n'
         'See https://dart.dev/tools/pub/pubspec#name for more information.',
