@@ -44,13 +44,13 @@ Updates the template of the flutter feature
 
 ### create-feature-test
 
-* `dart pub global run mago_merlino:mago_merlino create-feature abc`
+* `dart pub global run mago_merlino:mago_merlino create-feature-test abc`
 Creates a new flutter feature test in the test folder, at root level.
 
-* `dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature`
+* `dart pub global run mago_merlino:mago_merlino create-feature-test abc --path lib/feature`
 Creates a new flutter feature test in the test folder, inside the specified directory.
 
-* `dart pub global run mago_merlino:mago_merlino create-feature abc --package-name your_package_name`
+* `dart pub global run mago_merlino:mago_merlino create-feature-test abc --package-name your_package_name`
 Creates a new flutter feature test using your project package name.
 
 * `pub run mago_merlino update-feature-test`
