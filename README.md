@@ -8,33 +8,27 @@ Generates flutter feature BLOC/REPO/VIEW
 
 ## Installation
 
-Move the `mago_merlino` file to the root of your project.
-
-or
-
 ```sh
 dart pub global activate mago_merlino
-or
-dart pub global activate -sgit https://github.com/PatchAii/mago-merlino.git
+```
 
+## Usage
 
-dart pub global run mago_merlino:mago_merlino create-feature abc
-dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature
+```sh
+dart pub global run mago_merlino run
 ```
 
 ## Commands
 
----
-
 ### create-feature
 
-* `dart pub global run mago_merlino:mago_merlino create-feature abc`
+* `dart pub global run mago_merlino create-feature abc`
 Creates a new flutter feature in the root.
 
-* `dart pub global run mago_merlino:mago_merlino create-feature abc --path lib/feature`
+* `dart pub global run mago_merlino create-feature abc --path lib/feature`
 Creates a new flutter feature in the specified directory.
 
-* `dart pub global run mago_merlino:mago_merlino create-feature abc --package-name your_package_name`
+* `dart pub global run mago_merlino create-feature abc --package-name your_package_name`
 Creates a new flutter feature using your project package name.
 
 * `pub run mago_merlino update-feature`
@@ -44,13 +38,13 @@ Updates the template of the flutter feature
 
 ### create-feature-test
 
-* `dart pub global run mago_merlino:mago_merlino create-feature-test abc`
+* `dart pub global run mago_merlino create-feature-test abc`
 Creates a new flutter feature test in the test folder, at root level.
 
-* `dart pub global run mago_merlino:mago_merlino create-feature-test abc --path lib/feature`
+* `dart pub global run mago_merlino create-feature-test abc --path lib/feature`
 Creates a new flutter feature test in the test folder, inside the specified directory.
 
-* `dart pub global run mago_merlino:mago_merlino create-feature-test abc --package-name your_package_name`
+* `dart pub global run mago_merlino create-feature-test abc --package-name your_package_name`
 Creates a new flutter feature test using your project package name.
 
 * `pub run mago_merlino update-feature-test`
@@ -64,10 +58,4 @@ Updates the template of the flutter feature test
 
 ```sh
 dart bin/mago_merlino.dart command_name
-```
-
-* For production release:
-
-```sh
-dart2native bin/mago_merlino.dart -o mago_merlino
 ```

@@ -1,4 +1,8 @@
 
+## [1.0.0]
+
+* adds run command
+
 ## [0.1.0]
 
 * adds test generation functionality.
